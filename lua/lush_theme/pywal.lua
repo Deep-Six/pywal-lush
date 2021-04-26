@@ -325,6 +325,17 @@ local lightline_theme = {
        {theme.StatusLine.bg.hex, theme.StatusLine.fg.hex},
      },
    },
+   visual = {
+     left = {
+       {theme.WarningMsg.bg.hex, theme.WarningMsg.fg.hex},
+     },
+     middle = {
+       {theme.Normal.bg.hex, theme.Normal.fg.hex},
+     },
+     right = {
+       {theme.StatusLine.bg.hex, theme.StatusLine.fg.hex},
+     },
+   },
  }
 
 -- Use lightlines helper functions to correct cterm holes in our theme.
@@ -354,18 +365,18 @@ vim.g['lightline#colorscheme#lightline_one_file#palette'] = lightline_theme_fill
 
 -- Lightline is a little tempermental about when you tell it to update it's
 -- theme, so we push it to vim's scheduler.
-vim.schedule(function()
-  -- lightline#colorscheme() has a side effect of not always
+-- vim.schedule(function()
+--   -- lightline#colorscheme() has a side effect of not always
   -- applying updates until after leaving insert mode.
-  vim.fn['lightline#colorscheme']()
+--   vim.fn['lightline#colorscheme']()
 
    -- this will apply more uniforming across all modes, but may have
    -- unacceptable performance impacts.
-    vim.fn['lightline#disable']()
-    vim.fn['lightline#enable']()
+  --   vim.fn['lightline#disable']()
+  --   vim.fn['lightline#enable']()
 -- return our parsed theme for extension or use else where.
 --
-end)
+-- end)
 return theme
 
 -- vi:nowrap
