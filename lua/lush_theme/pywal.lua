@@ -305,7 +305,7 @@ end
 local lightline_theme = {
    normal = {
      left = {
-       {theme.Normal.fg.hex, theme.Normal.bg.hex},
+       {theme.CursorLineNr.fg.hex, theme.CursorLineNr.bg.hex},
      },
      middle = {
        {theme.Normal.fg.hex, theme.Normal.bg.hex},
