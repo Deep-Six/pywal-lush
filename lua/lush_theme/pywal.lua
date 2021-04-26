@@ -165,7 +165,7 @@ local theme = lush(function()
 
      Statement      { bg = color1, fg = color4.lighten(40) }, -- (preferred) any statement
      Conditional    { bg = color1, fg = color4.lighten(30) }, --  if, then, else, endif, switch, etc.
-     Repeat         { bg = color1, fg = color6.lighten(20) }, --   for, do, while, etc.
+     Repeat         { bg = color1, fg = color3.darken(20) }, --   for, do, while, etc.
      Label          { bg = color1, fg = color2.lighten(30)}, --    case, default, etc.
     -- Operator       { }, -- "sizeof", "+", "*", etc.
     -- Keyword        { }, --  any other keyword
