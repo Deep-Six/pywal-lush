@@ -119,7 +119,7 @@ local theme = lush(function()
     MsgArea       { bg = color1.lighten(5), fg = color6.darken(15) },   -- Area for messages and cmdline
     MsgSeparator  { bg = color1.darken(80), fg = color5.lighten(60) }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg       { bg = color1, fg = color6.lighten(10), gui = "italic" }, -- |more-prompt|
-    NonText       { bg = color1, fg = color2, ctermbg=none }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NonText       { bg = color1, fg = color2.darken(30), ctermbg=none }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal        { bg = color1, fg = color1.lighten(40), ctermbg=none }, -- normal text
     NormalFloat   { bg = color7, fg = color2.darken(40)}, -- Normal text in floating windows.
     NormalNC      { bg = color1, fg = color9.darken(70)}, -- normal text in non-current windows
@@ -317,6 +317,17 @@ local lightline_theme = {
    insert = {
      left = {
        {theme.PmenuSbar.bg.hex, theme.PmenuSbar.fg.hex},
+     },
+     middle = {
+       {theme.Normal.bg.hex, theme.Normal.fg.hex},
+     },
+     right = {
+       {theme.StatusLine.bg.hex, theme.StatusLine.fg.hex},
+     },
+   },
+   replace = {
+     left = {
+       {theme.Pmenu.bg.hex, theme.Pmenu.fg.hex},
      },
      middle = {
        {theme.Normal.bg.hex, theme.Normal.fg.hex},
