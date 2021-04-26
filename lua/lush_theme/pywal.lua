@@ -316,7 +316,7 @@ local lightline_theme = {
    },
    insert = {
      left = {
-       {theme.TermCursorNC.bg.hex, theme.TermCursor.fg.hex},
+       {theme.PmenuSbar.bg.hex, theme.PmenuSbar.fg.hex},
      },
      middle = {
        {theme.Normal.bg.hex, theme.Normal.fg.hex},
