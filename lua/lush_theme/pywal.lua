@@ -45,7 +45,37 @@
 local lush = require('lush')
 local hsl = lush.hsl
 
+function getColors()
+  local colorTable = {}
+  local home = os.getenv("HOME")
+  local pywal_colors  = home .. "/.cache/wal/colors"
+  file = io.open(pywal_colors, "r")
+  for line in file:lines() do
+    table.insert(colorTable,line) 
+  end
+  return colorTable
+end
+
+local colors = getColors()
+
 local theme = lush(function()
+  local color1 = hsl(colors[1])
+  local color2 = hsl(colors[2])
+  local color3 = hsl(colors[3])
+  local color4 = hsl(colors[4])
+  local color5 = hsl(colors[5])
+  local color6 = hsl(colors[6])
+  local color7 = hsl(colors[7])
+  local color8 = hsl(colors[8])
+  local color9 = hsl(colors[9])
+  local color10 = hsl(colors[10])
+  local color11 = hsl(colors[11])
+  local color12 = hsl(colors[12])
+  local color13 = hsl(colors[13])
+  local color14 = hsl(colors[14])
+  local color15 = hsl(colors[15])
+  local color16 = hsl(colors[16])
+
   return {
     -- The following are all the Neovim default highlight groups from the docs
     -- as of 0.5.0-nightly-446, to aid your theme creation. Your themes should
@@ -59,63 +89,63 @@ local theme = lush(function()
     -- styling for that group (meaning they mostly get styled as Normal)
     -- or leave them commented to apply vims default colouring or linking.
 
-    -- Comment      { }, -- any comment
-    -- ColorColumn  { }, -- used for the columns set with 'colorcolumn'
-    -- Conceal      { }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-    -- Cursor       { }, -- character under the cursor
-    -- lCursor      { }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-    -- CursorIM     { }, -- like Cursor, but used when in IME mode |CursorIM|
-    -- CursorColumn { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    -- CursorLine   { }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-    -- Directory    { }, -- directory names (and other special names in listings)
-    -- DiffAdd      { }, -- diff mode: Added line |diff.txt|
-    -- DiffChange   { }, -- diff mode: Changed line |diff.txt|
-    -- DiffDelete   { }, -- diff mode: Deleted line |diff.txt|
-    -- DiffText     { }, -- diff mode: Changed text within a changed line |diff.txt|
-    -- EndOfBuffer  { }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
-    -- TermCursor   { }, -- cursor in a focused terminal
-    -- TermCursorNC { }, -- cursor in an unfocused terminal
-    -- ErrorMsg     { }, -- error messages on the command line
-    -- VertSplit    { }, -- the column separating vertically split windows
-    -- Folded       { }, -- line used for closed folds
-    -- FoldColumn   { }, -- 'foldcolumn'
-    -- SignColumn   { }, -- column where |signs| are displayed
-    -- IncSearch    { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-    -- Substitute   { }, -- |:substitute| replacement text highlighting
-    -- LineNr       { }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    -- CursorLineNr { }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    -- MatchParen   { }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
-    -- MsgArea      { }, -- Area for messages and cmdline
-    -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-    -- MoreMsg      { }, -- |more-prompt|
-    -- NonText      { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    -- Normal       { }, -- normal text
-    -- NormalFloat  { }, -- Normal text in floating windows.
-    -- NormalNC     { }, -- normal text in non-current windows
-    -- Pmenu        { }, -- Popup menu: normal item.
-    -- PmenuSel     { }, -- Popup menu: selected item.
-    -- PmenuSbar    { }, -- Popup menu: scrollbar.
-    -- PmenuThumb   { }, -- Popup menu: Thumb of the scrollbar.
-    -- Question     { }, -- |hit-enter| prompt and yes/no questions
-    -- QuickFixLine { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    -- Search       { }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-    -- SpecialKey   { }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
-    -- SpellBad     { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise. 
-    -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-    -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-    -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-    -- StatusLine   { }, -- status line of current window
-    -- StatusLineNC { }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-    -- TabLine      { }, -- tab pages line, not active tab page label
-    -- TabLineFill  { }, -- tab pages line, where there are no labels
-    -- TabLineSel   { }, -- tab pages line, active tab page label
-    -- Title        { }, -- titles for output from ":set all", ":autocmd" etc.
-    -- Visual       { }, -- Visual mode selection
-    -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
-    -- WarningMsg   { }, -- warning messages
-    -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
-    -- WildMenu     { }, -- current match in 'wildmenu' completion
+     Comment      { bg = color1, fg = color11.darken(70), gui = "italic"   }, -- any comment
+     ColorColumn  { bg = color1.darken(60) }, -- used for the columns set with 'colorcolumn'
+     Conceal      { bg = color1, fg = color2.darken(60) }, -- placeholder characters substituted for concealed text (see 'conceallevel')
+    Cursor        { bg = color1, fg = color9 }, -- character under the cursor
+    lCursor       { bg = color3, fg = color10.darken(30) }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
+    CursorIM      { bg = color6, fg = color1 }, -- like Cursor, but used when in IME mode |CursorIM|
+    CursorColumn  { bg = color1, fg = color8 }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+     CursorLine   { bg = color2.darken(40), fg = color2.lighten(40) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    Directory     { bg = color1, fg = color6 }, -- directory names (and other special names in listings)
+    DiffAdd       { bg = color1, fg = color6 }, -- diff mode: Added line |diff.txt|
+    DiffChange    { bg = color1, fg = color11.lighten(30)}, -- diff mode: Changed line |diff.txt|
+    DiffDelete    { bg = color1, fg = color5.lighten(30)}, -- diff mode: Deleted line |diff.txt|
+    DiffText      { bg = color1, fg = color6.lighten(40)}, -- diff mode: Changed text within a changed line |diff.txt|
+      EndOfBuffer { bg = color1, fg = color2.darken(55) }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
+    TermCursor    { bg = color6, fg = color1 }, -- cursor in a focused terminal
+    TermCursorNC  { bg = color3, fg = color1 }, -- cursor in an unfocused terminal
+    ErrorMsg      { bg = color3.lighten(50), fg = color1 }, -- error messages on the command line
+    VertSplit     { bg = color4, fg = color2 }, -- the column separating vertically split windows
+    Folded        { bg = color1, fg = color3.darken(30)}, -- line used for closed folds
+    FoldColumn    { bg = color1, fg = color3 }, -- 'foldcolumn'
+    SignColumn    { bg = color1, fg = color6 }, -- column where |signs| are displayed
+    IncSearch     { bg = color8, fg = color1 }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    Substitute    { bg = color7, fg = color1 }, -- |:substitute| replacement text highlighting
+    LineNr        { bg = color1, fg = color12 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    CursorLineNr  { bg = color12.lighten(35), fg = color1.darken(30) }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    MatchParen    { bg = color1, fg = color1.lighten(50) }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    ModeMsg       { bg = color1.lighten(10), fg = color6 }, -- 'showmode' message (e.g., "-- INSERT -- ")
+    MsgArea       { bg = color1.lighten(5), fg = color6.darken(15) },   -- Area for messages and cmdline
+    MsgSeparator  { bg = color1.darken(80), fg = color5.lighten(60) }, -- Separator for scrolled messages, `msgsep` flag of 'display'
+    MoreMsg       { bg = color1, fg = color6.lighten(10), gui = "italic" }, -- |more-prompt|
+    NonText       { bg = color1, fg = color2, ctermbg=none }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    Normal        { bg = color1, fg = color1.lighten(40), ctermbg=none }, -- normal text
+    NormalFloat   { bg = color7, fg = color2.darken(40)}, -- Normal text in floating windows.
+    NormalNC      { bg = color1, fg = color9.darken(70)}, -- normal text in non-current windows
+    Pmenu         { bg = color1.lighten(30), fg = color8 }, -- Popup menu: normal item.
+    PmenuSel      { bg = color5.lighten(30), fg = color12 }, -- Popup menu: selected item.
+    PmenuSbar     { bg = color2, fg = color1 }, -- Popup menu: scrollbar.
+    PmenuThumb    { bg = color1, fg = color2 }, -- Popup menu: Thumb of the scrollbar.
+    Question      { bg = color1, fg = color5.lighten(30)  }, -- |hit-enter| prompt and yes/no questions
+    QuickFixLine  { bg = color3, fg = color9}, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+    Search        { bg = color8.darken(20), fg = color2.lighten(10)}, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    SpecialKey    { bg = color1 , fg = color8.darken(40)  }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
+    SpellBad      { bg = color1, fg = color3.darken(25), gui = "undercurl" }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise. 
+    SpellCap      { SpellBad}, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+    SpellLocal    { SpellBad}, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+    SpellRare     { SpellBad}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+    StatusLine    { bg = color1.lighten(60), fg = color6.darken(60)  }, -- status line of current window
+    StatusLineNC  { bg = color9.darken(70), fg = color2.lighten(10)}, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    TabLine       { StatusLineNC}, -- tab pages line, not active tab page label
+    TabLineFill   { PmenuThumb }, -- tab pages line, where there are no labels
+    TabLineSel    { Search }, -- tab pages line, active tab page label
+    Title         { bg = color1.lighten(10),fg = color1.lighten(40) }, -- titles for output from ":set all", ":autocmd" etc.
+    Visual        { bg = color9, fg = color1 }, -- Visual mode selection
+    VisualNOS     { QuickFixLine}, -- Visual mode selection when vim is "Not Owning the Selection".
+    WarningMsg    { bg = color1.lighten(15), fg = color6.lighten(70), gui="bold"  }, -- warning messages
+    Whitespace    { NonText}, -- "nbsp", "space", "tab" and "trail" in 'listchars'
+    WildMenu      { PmenuSel}, -- current match in 'wildmenu' completion
 
     -- These groups are not listed as default vim groups,
     -- but they are defacto standard group names for syntax highlighting.
@@ -123,52 +153,52 @@ local theme = lush(function()
     -- default,
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    -- Constant       { }, -- (preferred) any constant
+    Constant       { bg = color1, fg = color8.darken(35) }, -- (preferred) any constant
     -- String         { }, --   a string constant: "this is a string"
     -- Character      { }, --  a character constant: 'c', '\n'
     -- Number         { }, --   a number constant: 234, 0xff
     -- Boolean        { }, --  a boolean constant: TRUE, false
     -- Float          { }, --    a floating point constant: 2.3e10
 
-    -- Identifier     { }, -- (preferred) any variable name
-    -- Function       { }, -- function name (also: methods for classes)
+     Identifier     { bg = color1, fg = color5.darken(30) }, -- (preferred) any variable name
+     Function       { bg = color1, fg = color1.lighten(30)}, -- function name (also: methods for classes)
 
-    -- Statement      { }, -- (preferred) any statement
-    -- Conditional    { }, --  if, then, else, endif, switch, etc.
-    -- Repeat         { }, --   for, do, while, etc.
-    -- Label          { }, --    case, default, etc.
+     Statement      { bg = color1, fg = color4.lighten(40) }, -- (preferred) any statement
+     Conditional    { bg = color1, fg = color4.lighten(30) }, --  if, then, else, endif, switch, etc.
+     Repeat         { bg = color1, fg = color6.lighten(20) }, --   for, do, while, etc.
+     Label          { bg = color1, fg = color2.lighten(30)}, --    case, default, etc.
     -- Operator       { }, -- "sizeof", "+", "*", etc.
     -- Keyword        { }, --  any other keyword
     -- Exception      { }, --  try, catch, throw
 
-    -- PreProc        { }, -- (preferred) generic Preprocessor
+     PreProc        { bg = color1, fg = color7.darken(30)}, -- (preferred) generic Preprocessor
     -- Include        { }, --  preprocessor #include
     -- Define         { }, --   preprocessor #define
     -- Macro          { }, --    same as Define
     -- PreCondit      { }, --  preprocessor #if, #else, #endif, etc.
 
-    -- Type           { }, -- (preferred) int, long, char, etc.
+     Type           { bg = color1, fg = color1.lighten(70), gui = "bold" }, -- (preferred) int, long, char, etc.
     -- StorageClass   { }, -- static, register, volatile, etc.
     -- Structure      { }, --  struct, union, enum, etc.
     -- Typedef        { }, --  A typedef
 
-    -- Special        { }, -- (preferred) any special symbol
+    Special        { bg = color1, fg=color6.darken(50)}, -- (preferred) any special symbol
     -- SpecialChar    { }, --  special character in a constant
     -- Tag            { }, --    you can use CTRL-] on this
     -- Delimiter      { }, --  character that needs attention
     -- SpecialComment { }, -- special things inside a comment
     -- Debug          { }, --    debugging statements
 
-    -- Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
-    -- Bold       { gui = "bold" },
-    -- Italic     { gui = "italic" },
+     Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
+     Bold       { gui = "bold" },
+     Italic     { gui = "italic" },
 
     -- ("Ignore", below, may be invisible...)
     -- Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|
 
-    -- Error          { }, -- (preferred) any erroneous construct
+     Error          { bg = color6.darken(70), fg = color11.lighten(50),gui="bold"}, -- (preferred) any erroneous construct
 
-    -- Todo           { }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+     Todo           { Title}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     -- These groups are for the native LSP client. Some other LSP clients may
     -- use these groups, or use their own. Consult your LSP client's
@@ -262,9 +292,80 @@ local theme = lush(function()
     -- TSURI                { };    -- Any URI like a link or email.
 
   }
-end)
+end
+)
 
+-- Define your lightline theme using groups from our lush spec
+--
+-- This theme simply flips the background and foreground colours
+-- for normal and insert mode.
+--
+-- Continue below to see how to enable real time updating,
+-- then try editing this theme.
+local lightline_theme = {
+   normal = {
+     left = {
+       {theme.Normal.fg.hex, theme.Normal.bg.hex},
+     },
+     middle = {
+       {theme.Normal.fg.hex, theme.Normal.bg.hex},
+     },
+     right = {
+       {theme.Normal.fg.hex, theme.Normal.bg.hex},
+     },
+   },
+   insert = {
+     left = {
+       {theme.Normal.bg.hex, theme.Normal.fg.hex},
+     },
+     middle = {
+       {theme.Normal.bg.hex, theme.Normal.fg.hex},
+     },
+     right = {
+       {theme.Normal.bg.hex, theme.Normal.fg.hex},
+     },
+   },
+ }
+
+-- Use lightlines helper functions to correct cterm holes in our theme.
+-- Note: These functions can be expensive to run, it is recommended you
+--       leave them commented out until you wish to work on lightline,
+--       or investigate the two-file approach in the other lightline example.
+local lightline_theme_filled = vim.fn['lightline#colorscheme#fill'](lightline_theme)
+
+-- define our theme for lightline to find
+vim.g['lightline#colorscheme#lightline_one_file#palette'] = lightline_theme_filled 
+
+-- Technically, that's all you have to do for your lightline theme to
+-- be applied but if you want real-time feedback while designing it, you must
+-- include some extra code which forces lightline to notice the changes.
+--
+-- It's recommended you comment out the following code if you're not actively
+-- editing your lightline theme.
+--
+-- You may find realtime performance unacceptable while changes are being
+-- propagated back to and applied by vimscript, if this is a problem,
+-- you can disable lush.ify() on the buffer (save then `:e!`), then when you
+-- wish to preview your changes, save and run `:luafile %`.
+--
+-- Consider making a temporary mapping while working:
+--
+--   `:nmap <leader>llr :luafile %<CR>`
+
+-- Lightline is a little tempermental about when you tell it to update it's
+-- theme, so we push it to vim's scheduler.
+vim.schedule(function()
+  -- lightline#colorscheme() has a side effect of not always
+  -- applying updates until after leaving insert mode.
+  vim.fn['lightline#colorscheme']()
+
+   -- this will apply more uniforming across all modes, but may have
+   -- unacceptable performance impacts.
+    vim.fn['lightline#disable']()
+    vim.fn['lightline#enable']()
 -- return our parsed theme for extension or use else where.
+--
+end)
 return theme
 
 -- vi:nowrap
