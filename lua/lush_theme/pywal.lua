@@ -311,18 +311,18 @@ local lightline_theme = {
        {theme.Normal.fg.hex, theme.Normal.bg.hex},
      },
      right = {
-       {theme.Normal.fg.hex, theme.Normal.bg.hex},
+       {theme.StatusLine.fg.hex, theme.StatusLine.bg.hex},
      },
    },
    insert = {
      left = {
-       {theme.Normal.bg.hex, theme.Normal.fg.hex},
+       {theme.TermCursorNC.bg.hex, theme.TermCursor.fg.hex},
      },
      middle = {
        {theme.Normal.bg.hex, theme.Normal.fg.hex},
      },
      right = {
-       {theme.Normal.bg.hex, theme.Normal.fg.hex},
+       {theme.StatusLine.bg.hex, theme.StatusLine.fg.hex},
      },
    },
  }
