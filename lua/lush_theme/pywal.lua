@@ -45,18 +45,7 @@
 local lush = require('lush')
 local hsl = lush.hsl
 
-function getColors()
-  local colorTable = {}
-  local home = os.getenv("HOME")
-  local pywal_colors  = home .. "/.cache/wal/colors"
-  file = io.open(pywal_colors, "r")
-  for line in file:lines() do
-    table.insert(colorTable,line) 
-  end
-  return colorTable
-end
-
-local colors = getColors()
+local colors = require("lush_theme.colors").getColors()
 
 local theme = lush(function()
   local color1 = hsl(colors[1])
