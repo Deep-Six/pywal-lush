@@ -43,27 +43,26 @@
 --  `:lua require('lush').ify()`
 
 local lush = require('lush')
-local hsl = lush.hsl
 
-local colors = require("lush_theme.colors").getColors()
+local colors = require("lush_theme.colors")
 
 local theme = lush(function()
-  local color1 = hsl(colors[1])
-  local color2 = hsl(colors[2])
-  local color3 = hsl(colors[3])
-  local color4 = hsl(colors[4])
-  local color5 = hsl(colors[5])
-  local color6 = hsl(colors[6])
-  local color7 = hsl(colors[7])
-  local color8 = hsl(colors[8])
-  local color9 = hsl(colors[9])
-  local color10 = hsl(colors[10])
-  local color11 = hsl(colors[11])
-  local color12 = hsl(colors[12])
-  local color13 = hsl(colors[13])
-  local color14 = hsl(colors[14])
-  local color15 = hsl(colors[15])
-  local color16 = hsl(colors[16])
+  local color1 = colors.color1
+  local color2 = colors.color2
+  local color3 = colors.color3
+  local color4 = colors.color4
+  local color5 = colors.color5
+  local color6 = colors.color6
+  local color7 = colors.color7
+  local color8 = colors.color8
+  local color9 = colors.color9
+  local color10 = colors.color10
+  local color11 = colors.color11
+  local color12 = colors.color12
+  local color13 = colors.color13
+  local color14 = colors.color14
+  local color15 = colors.color15
+  local color16 = colors.color16
 
   return {
     -- The following are all the Neovim default highlight groups from the docs
