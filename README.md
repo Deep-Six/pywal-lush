@@ -19,6 +19,28 @@ VimPlug `Plug 'Deep-Six/pywal-lush',{'branch': 'main'}`
 
 ## Configuration
 
+The `termguicolors` option must be set for this colorscheme.
+
+```vim
+" set the lightline theme.
+let g:lightline = {
+    \ 'colorscheme': 'pywal_lush'
+    \ }
+
+" set the colorscheme
+colorscheme pywal_lush
+```
+
+or in lua:
+
+```lua
+vim.g.lightline = { colorscheme = "pywal_lush" }
+
+vim.cmd.colorscheme("pywal_lush")
+```
+
+### Advanced
+
 Currently, you may use `lush` to modify the colorscheme directly if you wish.
 The colors are offered by the theme, so you can also use them directly:
 
@@ -62,8 +84,7 @@ lush(spec)
 
 ## Todo
 
-I am trying to get lightline working, but with an eye to move to lualine
-instead.
+Support lualine as well as lightline.
 
 ## More Information
 

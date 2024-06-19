@@ -1,6 +1,6 @@
 " You probably always want to set this in your vim file
 set background=dark
-let g:colors_name="pywal"
+let g:colors_name="pywal_lush"
 
 " By setting our module to nil, we clear lua's cache,
 " which means the require ahead will *always* occur.
